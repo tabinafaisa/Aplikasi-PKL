@@ -8,9 +8,9 @@ use App\Models\Humas;
 
 class HumasController extends Controller
 {
-    // public function index(){
-    //     return view('daftar/humas');
-    // }
+    public function index(){
+        return view('daftar/humas');
+    }
 
     public function daftar(Request $request) {
         $validate = $request->validate([
@@ -39,7 +39,7 @@ class HumasController extends Controller
         return $createhumas;
     }
 
-    // public function show() {
-    //     return view('humas/index');
-    // }
+    public function show() {
+        return view('humas/index');
+    }
 }

@@ -11,7 +11,7 @@ class LoginController extends Controller
     public function index()
     {
         return view('auth/login');
-        // return Auth::user();
+        
     }
 
     public function auth(Request $request)
@@ -22,7 +22,12 @@ class LoginController extends Controller
             'password' => 'required|min:8'
         ]);
 
+        
+
         $check = Auth::attempt($validate);
+        if(Auth::user()->status == 'inactive'){
+            return redirect('/logout');
+        }
         // return Auth::check();
         if ($check) {
             return redirect('/');

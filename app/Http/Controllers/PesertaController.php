@@ -45,7 +45,7 @@ class PesertaController extends Controller
         ];
 
         $createPeserta = Peserta::create($peserta);
-        return $createPeserta;
+        return redirect('/login');
     }
 
     public function show() {

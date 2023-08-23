@@ -159,21 +159,13 @@
                             <span><i class="icofont-ui-home"></i></span>
                         </a>
                     </li>
+                    @if(Auth::user()->hak_akses == 'humas')
                     <li>
                         <a href="{{url('/user')}}" data-toggle="tooltip" data-placement="right" title="Trade">
                             <span><i class="icofont-stack-exchange"></i></span>
                         </a>
                     </li>
-                    <li>
-                        <a href="wallet.html" data-toggle="tooltip" data-placement="right" title="Wallet">
-                            <span><i class="icofont-wallet"></i></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="price.html" data-toggle="tooltip" data-placement="right" title="Price">
-                            <span><i class="icofont-price"></i></span>
-                        </a>
-                    </li>
+                    @endif
                     <li class="logout">
                         <a href="{{url('logout')}}" data-toggle="tooltip" data-placement="right" title="Signout">
                             <span><i class="icofont-power"></i></span>

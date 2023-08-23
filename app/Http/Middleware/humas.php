@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController;
 
 class humas
 {
@@ -17,7 +18,7 @@ class humas
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->user()->hak_akses != "humas") {
-            redirect('/');
+            return route('dashboard');
         }
 
         return $next($request);

@@ -8,6 +8,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HumasController;
 use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\JurnalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/logout', [LoginController::class, 'logout']);
 
 });
@@ -32,6 +33,11 @@ Route::middleware(['auth', 'humas'])->group(function () {
     Route::get('/peserta', [PesertaController::class, 'show']);
     Route::get('/user', [UserController::class, 'index']);
     Route::get('/user/peserta_approve/{id}', [UserController::class, 'peserta_approve']);
+    Route::get('/update', [UserController::class, 'edit']);
+    Route::get('/update/{id}', [UserController::class, 'update'])->name('users.update');
+    // Route::get('/user/{id}/edit', 'UserController@edit')->name('users.edit');
+    // Route::patch('/user/{id}', 'UserController@update')->name('users.update');
+    Route::delete('/delete/{id}', [UserController::class, 'delete']);
 });
 
 // Route::resource('peserta', PesertaController::class);
